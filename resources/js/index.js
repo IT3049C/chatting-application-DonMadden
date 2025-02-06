@@ -31,3 +31,25 @@ else {
   </div>
   ;
 }
+function fetchMessages() {
+  return [
+    {
+      id: 1,
+      text: "This is my message",
+      sender: "Don Madden",
+      timestamp: 1537410673072
+    },
+    {
+      id: 2,
+      text: "This is another message",
+      sender: "Dontavious",
+      timestamp: 1537410673072
+    },
+    {
+      id: 3,
+      text: "This is a message from someone else",
+      sender: "Donny Dimes",
+      timestamp: 1537410673072
+    }
+  ];
+}

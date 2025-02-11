@@ -64,3 +64,11 @@ function updateMessages() {
 }
 
 updateMessages();
+
+sendButton.addEventListener("click", function(event) {
+  event.preventDefault();
+  const sender = nameInput.value;
+  const message = myMessage.value;
+  sendMessages(sender, message);
+  myMessage.value = "";
+});

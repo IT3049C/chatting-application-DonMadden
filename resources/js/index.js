@@ -38,8 +38,8 @@ function fetchMessages() {
     .then(response => response.json());
 }
 
-function updateMessages() {
-  const messages = fetchMessages();
+async function updateMessages() {
+  const messages = await fetchMessages();
   let formattedMessages = "";
   messages.forEach(message => {
     formattedMessages += formatMessage(message, nameInput.value);

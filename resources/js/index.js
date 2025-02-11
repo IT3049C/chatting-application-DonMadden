@@ -54,13 +54,11 @@ function fetchMessages() {
   ];
 }
 
-function updateMessages() {
-  const messages = fetchMessages();
-  let formattedMessages = "";
-  messages.forEach(message => {
-    formattedMessages += formatMessage(message, nameInput.value);
-  });
-  chatBox.innerHTML = formattedMessages;
+const serverURL = `https://it3049c-chat.fly.dev/messages`;
+
+function fetchMessages() {
+  return fetch(serverURL)
+    .then(response => response.json());
 }
 
 updateMessages();

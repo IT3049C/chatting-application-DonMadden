@@ -31,34 +31,20 @@ else {
   </div>
   ;
 }
-function fetchMessages() {
-  return [
-    {
-      id: 1,
-      text: "This is my message",
-      sender: "Don Madden",
-      timestamp: 1537410673072
-    },
-    {
-      id: 2,
-      text: "This is another message",
-      sender: "Dontavious",
-      timestamp: 1537410673072
-    },
-    {
-      id: 3,
-      text: "This is a message from someone else",
-      sender: "Donny Dimes",
-      timestamp: 1537410673072
-    }
-  ];
-}
-
 const serverURL = `https://it3049c-chat.fly.dev/messages`;
 
 function fetchMessages() {
   return fetch(serverURL)
     .then(response => response.json());
+}
+
+function updateMessages() {
+  const messages = fetchMessages();
+  let formattedMessages = "";
+  messages.forEach(message => {
+    formattedMessages += formatMessage(message, nameInput.value);
+  });
+  chatBox.innerHTML = formattedMessages;
 }
 
 updateMessages();

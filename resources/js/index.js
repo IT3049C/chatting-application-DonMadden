@@ -47,8 +47,6 @@ async function updateMessages() {
   chatBox.innerHTML = formattedMessages;
 }
 
-updateMessages();
-
 sendButton.addEventListener("click", function(event) {
   event.preventDefault();
   const sender = nameInput.value;
@@ -56,3 +54,5 @@ sendButton.addEventListener("click", function(event) {
   sendMessages(sender, message);
   myMessage.value = "";
 });
+
+updateMessages();

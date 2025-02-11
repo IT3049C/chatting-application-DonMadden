@@ -41,11 +41,13 @@ function fetchMessages() {
 async function updateMessages() {
   const messages = await fetchMessages();
   let formattedMessages = "";
-  messages.forEach(message => {
+  messages.forEach(message => { 
     formattedMessages += formatMessage(message, nameInput.value);
   });
   chatBox.innerHTML = formattedMessages;
+  
 }
+
 
 sendButton.addEventListener("click", function(event) {
   event.preventDefault();
@@ -54,5 +56,9 @@ sendButton.addEventListener("click", function(event) {
   sendMessages(sender, message);
   myMessage.value = "";
 });
+
+setInterval(updateMessages, 10000);
+const MILLISECONDS_IN_TEN_SECONDS = 10000;
+setInterval(updateMessages, MILLISECONDS_IN_TEN_SECONDS);
 
 updateMessages();
